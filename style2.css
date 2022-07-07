@@ -105,8 +105,8 @@ h1 {
     text-align: center;
     transition: all .2s;
 }
-.button:hover,
-.button:active {
+.main:hover,
+.main:active {
     background-color: rgb(52, 104, 235);
     color: rgb(250, 251, 253);
 }
