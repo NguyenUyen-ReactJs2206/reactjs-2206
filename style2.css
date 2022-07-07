@@ -103,10 +103,10 @@ h1 {
     width: 100px;
     display: inline-block;
     text-align: center;
-    transition: all .2s;
+    transition: all 0.2s;
 }
-.main:hover,
-.main:active {
+.button:hover, 
+.button:active {
     background-color: rgb(52, 104, 235);
     color: rgb(250, 251, 253);
 }
