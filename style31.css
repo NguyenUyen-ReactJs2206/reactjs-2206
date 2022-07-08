@@ -1,0 +1,92 @@
+* {
+    padding: 0px;
+    margin: 0px auto;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    width: 1140px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.main {
+    background-color: black;
+    width: 100%;
+    border: 1px solid black;
+    height: 60px;
+}
+
+#main-menu {
+    list-style: none;
+    float: left;
+    width: 30%;
+    display: flex;
+    background-color: rgb(0, 0, 0);
+}
+
+#main-menu li {
+    position: relative;
+    padding-top: 20px
+}
+
+#main-menu li a {
+    text-decoration: none;
+    color: white;
+    padding: 20px 10px 20px 40px;
+}
+
+#main-menu li :hover {
+    background-color: rgb(42, 199, 73);
+}
+
+#main-menu ul.sub-menu {
+    position: absolute;
+    background-color: black;
+    width: 150px;
+    padding: 15px 20px;
+    list-style: none;
+    margin-top: 20px;
+    display: none;
+}
+
+#main-menu li:hover ul.sub-menu {
+    display: block;
+}
+
+#main-menu ul.sub-menu li {
+    padding: 8px;
+}
+
+#main-menu ul.sub-menu a {
+    color: rgb(255, 255, 255);
+    padding: 8px 15px;
+    margin: 30px 0px;
+    border-bottom: 1px solid #333;
+    height: 80%;
+}
+
+#main-menu ul.sub-menu li:last-child a {
+    border: none;
+}
+
+#main-menu ul.sub-menu li:hover {
+    background-color: rgb(42, 199, 73);
+    width: 90%;
+}
+
+#main-menu>li>a {
+    position: relative;
+}
+
+#main-menu>li>a::before {
+    content: "";
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    display: none;
+}
+
+#main-menu>li:hover>a::before {
+    display: block;
+}
