@@ -12,7 +12,7 @@
     clear: both;
 }
 
-.container{
+.container {
     width: 1140px;
     margin: 0px auto;
 }
@@ -85,7 +85,7 @@ li a {
     padding-left: 10px;
     padding-bottom: 10px;
 }
-.list a{
+.list a {
     text-decoration: none;
     color: #000;
 }
@@ -94,7 +94,7 @@ li a {
     border-bottom: 1px solid black;
     color: #000;
 }
-.icon i{
+.icon i {
     background-color: aliceblue;
     border-radius: 50%;
     width: 40px;
@@ -106,7 +106,10 @@ li a {
     padding: 8px;
     margin: 5px;
 }
-img{
+img {
     width: 200px;
     height: 80px;
+}
+.icon p a{
+    color: #000;
 }
