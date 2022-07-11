@@ -51,8 +51,7 @@ button {
     width: 20%;
     margin-bottom: 30px;
 }
-
-ul {
+.list-thongtin,.list-chinhsach {
     list-style-type: none;
     /*bo list o truoc*/
     padding-left: 0px;
@@ -65,40 +64,35 @@ li a {
     color: black;
 }
 
-ul.list-thongtin li a:hover,
-ul.list-thongtin li a:active {
+.list-thongtin a:hover,
+.list-thongtin a:active {
     font-size: 110%;
+    color: black;
 }
 
-ul.list-chinhsach li a:hover,
-ul.list-chinhsach li a:active {
+.list-chinhsach a:hover,
+.list-chinhsach a:active {
     font-size: 110%;
+    color: black;
 }
-
-ul.list li {
-    float: left;
-    margin-left: 20px;
-    text-align: center;
-}
-
-ul {
-    list-style: none;
-    display: inline-block;
-    font-size: 0;
-}
-
-ul.list li a,
-ul.list li p {
+.list a p {
     display: inline-block;
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
     color: #000;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.list a{
+    text-decoration: none;
+    color: #000;
 }
 
-ul.list li a:hover {
+.list a:hover {
     border-bottom: 1px solid black;
+    color: #000;
 }
 .icon i{
     background-color: aliceblue;
@@ -112,4 +106,7 @@ ul.list li a:hover {
     padding: 8px;
     margin: 5px;
 }
-
+img{
+    width: 200px;
+    height: 80px;
+}
