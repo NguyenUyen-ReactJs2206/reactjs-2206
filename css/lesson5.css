@@ -1,0 +1,29 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(93, 111, 107);
+    width: 100px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.dropdown-content a:hover {
+    background-color: #e1e9b6
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
