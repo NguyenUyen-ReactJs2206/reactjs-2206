@@ -40,7 +40,7 @@ function number2() {
     document.getElementById("snt").innerHTML = "Kết quả các số nguyên tố là:" + text;
 }
 
-//create order
+//create Order
 
 var listStudent = [
     {name:"Nguyen Van D", score:10},
