@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px auto;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            padding-bottom: 30px;
+            background-color: rgb(247, 238, 202);
+        }
+
+        button {
+            border: 5px solid none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-left: 30px;
+            width: 120px;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.2s;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cars">
+        <div class="container">
+            <h1 style="text-align:center;">Input-Output</h1>
+            <div class="row">
+                <div class="col-5">
+                    <textarea id="before" cols="50" rows="10" type="text" placeholder="Nhap input"></textarea>
+                </div>
+
+                <div class="col-2">
+                    <button type="button" class="btn-secondary" onclick="
+                        transfer();">Transfer
+                    </button>
+                </div>
+
+                <div class="col-5">
+                    <textarea id="after" cols="50" rows="10" type="text"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        var textbef = document.getElementById("before");
+        var textaft = document.getElementById("after");
+
+        // const str = 'let a  =12;';
+
+        // const result = str.replace("=", " = ");
+        // console.log(result); // 👉️ "a p p l e"
+        var textbef = document.getElementById("before");
+        var textaft = document.getElementById("after");
+
+        function transfer() {
+            //let $a=12; -> let $a = 12;
+            textaft.value = textbef.value.replace("=", " = ");
+            document.getElementById("after").innerHTML = textaft;
+            //let $a=12;       (khoảng trống ở sau/ ở trước     let $a=12;)
+            textaft.value = textbef.value.trim().replace("=", " = ");
+            document.getElementById("after").innerHTML = textaft;
+            //console.log(textaft.value);
+            //let $a=12    ;
+            textaft.value = textbef.value.replace(/  /gi, "").replace(' ;', ';').replace('=', ' = ');
+            document.getElementById("after").innerHTML = textaft;
+            //let    $a=12;
+            textaft.value = textbef.value.replace(/  /gi, "").replace('t$', 't $').replace('=', ' = ');
+            document.getElementById("after").innerHTML = textaft;
+        }
+
+    </script>
+</body>
+
+
+</html>

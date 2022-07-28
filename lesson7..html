@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT PROTOTYPE</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/lesson7.css">
+</head>
+
+<body>
+    <center>
+        <h1 style="padding: 10px">LESSON 7 - FORM Đăng Ký</h1>
+    </center>
+    <div class="container">
+      
+            <div class="input-box1">
+                <div class="col-6">
+                    <label for="Email">Email</label>
+                    <br>
+                    <input type="text" name="email" id="email" onkeyup="checkValue()">
+                </div>
+                <div class="col-6">
+                    <label for="Password"  >Password</label>
+                    <br>
+                    <input type="password" id="password" name="password" onkeyup="checkValue()">
+                </div>
+        </div>
+        <div class="input-box2">
+            <label for="Address">Address</label>
+            <br>
+            <input type="text" placeholder="1234 Viet Nam" >
+        </div>
+        <div class="input-box3">
+            <label for="Address 2">Address 2</label>
+            <br>
+            <input type="text" placeholder="1234 Viet Nam">
+        </div>
+        <div class="input-box4">
+                <div class="col-6">
+                    <label for="city">City</label>
+                    <br>
+                    <input type="text">
+                </div>
+                <div class="col-6">
+                    <label for="State">State</label>
+                    <br>
+                    <input type="text">
+                </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="input-box5">
+            <input type="checkbox" id="Check me out">
+            <label for="Check me out">Check me out</label>
+        </div>
+        <button disabled id="button">
+          <a href="#" class="button">Sign in</a>
+        </buton>
+    </div>
+    <script>
+function checkValue() {
+let email = document.getElementById('email').value;
+let password = document.getElementById('password').value; 
+if (email != "" && password != "") {
+//show btn
+document.getElementById('button')./*style.display= 'block'*/disabled = fasle; //hien
+} else {
+    //hide btn
+document.getElementById('button')./*style.display='none'*/disabled = true; //an
+}
+}
+
+
+    </script>
+
+</body>
+
+</html>

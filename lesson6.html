@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript-Lesson6</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>
+        <center>LESSON6 - JAVASCRIPT - Danh sach lop</center>
+    </h1>
+    <div class="container bg-warning">
+        <div>
+            <label for="">ID:</label>
+            <input type="number" placeholder="Nhap Id" id="id">
+        </div>
+        <div>
+            <label for="">Name:</label>
+            <input type="text" placeholder="Nhap ten" id="name">
+        </div>
+        <div>
+            <label for=""> Age:</label>
+            <input type="number" placeholder="Nhap tuoi" id="age">
+        </div>
+        <div>
+            <button onclick="add()">Submit</button>
+        </div>
+        <div>
+            <input type="text" placeholder="Nhap ten can tim" id="searchItem">
+        </div>
+        <div>
+            <button onclick="search()"> Search</button>
+        </div>
+        <table class="table" id="render">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+        </table>
+        <table class="tableSearch" style="display: none">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+        </table>
+        <script>
+            var data = [
+                {
+                    Id: 112,
+                    Name: 'Nguyen Van A',
+                    Age: 18,
+                },
+                {
+                    Id: 234,
+                    Name: 'Nguyen Van B',
+                    Age: 22,
+                },
+                {
+                    Id: 245,
+                    Name: 'Nguyen Van C',
+                    Age: 23,
+                },
+                {
+                    Id: 345,
+                    Name: 'Nguyen Van D',
+                    Age: 34,
+                }
+            ]
+            function add() {
+                var item_id = document.getElementById('id').value
+                var item_name = document.getElementById('name').value
+                var item_age = document.getElementById('age').value
+
+                var item = {
+                    Id: item_id,
+                    Name: item_name,
+                    Age: item_age
+                }
+                data.push(item)
+                render()
+                clead()
+            }
+
+            function render() {
+                table = `  <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>`
+                for (let i = 0; i < data.length; i++) {
+                    table += `  <tr>
+            <td>${data[i].Id}</td>
+            <td>${data[i].Name}</td>
+            <td>${data[i].Age}</td>
+        </tr>`
+                }
+                document.getElementById('render').innerHTML = table
+            }
+            function clead() {
+                document.getElementById('id').value = "";
+                document.getElementById('name').value = "";
+                document.getElementById('age').value = "";
+            }
+            function search() {
+                var search = document.getElementById('searchItem').value;
+                var list = this.data;
+                console.log(list)
+                if (search) {
+                    for (let i = 0; i < list.lenght; i++) {
+                        var str = list[i].name;
+                        if (str.includes(search)) {
+                            document.getElementById('tableSearch').style.display="block";
+                            document.getElementById('table').style.display="none";
+                            var itemSearch = {
+                                id: list[i].id,
+                                name: list[i].name,
+                                age: list[i].age
+                            }
+                            kq.push(itemSearch)
+                            console.log(kq)
+
+                            var table = `<tr><th>ID</th><th>Name</th><th>Age</th></tr>`
+                            for (let i = 0; i < kq.length; i++) {
+                                table += `<tr><td>${kq[i].Id}</td><td>${kq[i].Name}</td><td>${kq[i].Age}</td><th>
+                                    </tr>`
+                            }
+                            document.getElementById('tableSearch').innerHTML = table
+                        }
+                    }
+                }
+            }
+
+        </script>
+</body>
+
+</html>
