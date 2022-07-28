@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson5-JavaScript</title>
+    <link rel="stylesheet" href="./css/lesson5.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1> SỐ CHẴN - SỐ NGUYÊN TỐ </h1>
+    <p id="sochan">Before</p>
+    <button type="button" onclick="number1()">Try it</button>
+    <br>
+    <p id="snt">Before</p>
+    <button type="button" onclick="number2()">Try it</button>
+
+    <h2>
+        <center>LESSON5 - JAVASCRIPT - Danh sach lop</center>
+    </h2>
+    <div class="container bg-warning">
+        <table class="table table-bordered text-center table-hover">
+            <thead class="table-info">
+                <th>Name</th>
+                <th>Score</th>
+            </thead>
+            <tbody id="table_body"></tbody>
+        </table>
+        <div class="dropdown">
+            <button class="dropbtn dropdown-toggle text-white p-2 bg-secondary ">Order</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="searchName()">Name</a>
+                <a href="#" onclick="searchScore()">Score</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="./js/lesson5.js"></script>
+</body>
+
+</html>
