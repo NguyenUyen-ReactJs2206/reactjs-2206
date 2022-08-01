@@ -5,76 +5,181 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OBJECT PROTOTYPE</title>
+    <title>JavaScript-Lesson5</title>
+    <link rel="stylesheet" href="lesson5.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/lesson7.css">
+    <style>
+        
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(93, 111, 107);
+    width: 100px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding:20px;
+  }
+  
+  .dropdown-content a:hover {background-color: #e1e9b6}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .clearfix::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+    </style>
 </head>
 
 <body>
-    <center>
-        <h1 style="padding: 10px">LESSON 7 - FORM Đăng Ký</h1>
-    </center>
-    <div class="container">
-      
-            <div class="input-box1">
-                <div class="col-6">
-                    <label for="Email">Email</label>
-                    <br>
-                    <input type="text" name="email" id="email" onkeyup="checkValue()">
-                </div>
-                <div class="col-6">
-                    <label for="Password"  >Password</label>
-                    <br>
-                    <input type="password" id="password" name="password" onkeyup="checkValue()">
-                </div>
+    <h1>
+        <center>LESSON6 - JAVASCRIPT - Danh sach lop</center>
+    </h1>
+    <div class="container bg-warning">
+        <div>
+            <label for="">ID:</label>
+            <input type="number" placeholder="Nhap Id" id="id">
         </div>
-        <div class="input-box2">
-            <label for="Address">Address</label>
-            <br>
-            <input type="text" placeholder="1234 Viet Nam" >
+        <div>
+            <label for="">Name:</label>
+            <input type="text" placeholder="Nhap ten" id="name">
         </div>
-        <div class="input-box3">
-            <label for="Address 2">Address 2</label>
-            <br>
-            <input type="text" placeholder="1234 Viet Nam">
+        <div>
+            <label for=""> Age:</label>
+            <input type="number" placeholder="Nhap tuoi" id="age">
         </div>
-        <div class="input-box4">
-                <div class="col-6">
-                    <label for="city">City</label>
-                    <br>
-                    <input type="text">
-                </div>
-                <div class="col-6">
-                    <label for="State">State</label>
-                    <br>
-                    <input type="text">
-                </div>
+        <div>
+            <button onclick="add()">Submit</button>
         </div>
-        <div class="clearfix"></div>
-        <div class="input-box5">
-            <input type="checkbox" id="Check me out">
-            <label for="Check me out">Check me out</label>
+       <!-- <div>
+            <input type="text" placeholder="Nhap ten can tim" id="searchItem">
         </div>
-        <button disabled id="button">
-          <a href="#" class="button">Sign in</a>
-        </buton>
-    </div>
-    <script>
-function checkValue() {
-let email = document.getElementById('email').value;
-let password = document.getElementById('password').value; 
-if (email != "" && password != "") {
-//show btn
-document.getElementById('button')./*style.display= 'block'*/disabled = fasle; //hien
-} else {
-    //hide btn
-document.getElementById('button')./*style.display='none'*/disabled = true; //an
-}
-}
+        <div>
+            <button onclick="search()"> Search</button>
+        </div>-->
+        <table class="table" id="render">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody id="body"></tbody>
+        </table>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle text-white p-2 bg-secondary ">Order</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="orderName()">Name</a>
+                <a href="#" onclick="orderAge()">Age</a>
+            </div>
+        </div>
+        <script>
+            var data = [
+                {
+                    Id: 112,
+                    Name: 'Nguyen Van B',
+                    Age: 18,
+                },
+                {
+                    Id: 234,
+                    Name: 'Nguyen Van D',
+                    Age: 14,
+                },
+                {
+                    Id: 245,
+                    Name: 'Nguyen Van A',
+                    Age: 53,
+                },
+                {
+                    Id: 345,
+                    Name: 'Nguyen Van C',
+                    Age: 34,
+                }
+            ]
+            function showInfodata(abc) {
+                var hang = "";
+                for (x in data) {
+                    hang += `<tr>
+                  <td>${data[x]["Id"]}</td>
+                  <td>${data[x]["Name"]}</td>
+                  <td>${data[x]["Age"]}</td>
+              </tr>`;
+                }
+                document.getElementById("body").innerHTML = hang;
+            }
+            showInfodata(data);
+            //show list data
 
+            function add() {
+                var item_id = document.getElementById('id').value //gán đưa đến phần tử cần xử lý thêm value
+                var item_name = document.getElementById('name').value
+                var item_age = document.getElementById('age').value
 
-    </script>
+                var item = {
+                    Id: item_id,
+                    Name: item_name,
+                    Age: item_age
+                }
+                data.push(item) //đưa dữ liệu lên data
+                render()
+                clead()
+            }
 
+            function render() { //kết xuất
+                table = `  <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>`
+                for (let i = 0; i < data.length; i++) {
+                    table += `  <tr>
+            <td>${data[i].Id}</td>
+            <td>${data[i].Name}</td>
+            <td>${data[i].Age}</td>
+        </tr>`
+                }
+                document.getElementById('render').innerHTML = table
+            }
+            function clead() {
+                document.getElementById('id').value = "";
+                document.getElementById('name').value = "";
+                document.getElementById('age').value = "";
+            } //khóa lại sau mỗi lần nhập lấy giá trị rỗng 
+      //order
+            function orderName() {
+                data.sort(function (a, b) {
+                    let x = a.Name.toLowerCase();
+                    let y = b.Name.toLowerCase();
+                    if (x < y) { return -1; }
+                    if (x > y) { return 1; }
+                    return 0;
+                });
+                add();
+            }
+            function orderAge() {
+                data.sort(function (a, b) {
+                    return a.Age - b.Age;
+                });
+                add();
+            }
+
+        </script>
 </body>
 
 </html>

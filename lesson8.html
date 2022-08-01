@@ -5,89 +5,382 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input</title>
+    <title>Form Đăng Ký</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./uyen.css">
     <style>
         * {
-            padding: 0px;
-            margin: 0px auto;
-            font-family: sans-serif;
-            box-sizing: border-box;
-        }
+    padding: 0px;
+    margin: 0px auto;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    max-width: 1140px;
+    padding-bottom: 30px;
+    background-color: rgb(247, 238, 202);
+}
+.col-6 {
+    float: left;
+    width: 50%;
+}
 
-        .container {
-            width: 100%;
-            max-width: 1140px;
-            padding-bottom: 30px;
-            background-color: rgb(247, 238, 202);
-        }
+input[type='text'],
+input[type='text'],
+input[type='password'],
+input[type='number'],
+input[type='date'] {
+    padding: 7.5px 15px;
+    margin-bottom: 20px;
+    width: 95%;
+    border: 1px solid #cccccc;
+    font-size: 16px;
+    display: inline-block;
+    height: 40px;
+    border-radius: 5px;
+}
 
-        button {
-            border: 5px solid none;
-            padding: 15px 25px;
-            border-radius: 10px;
-            margin-left: 30px;
-            width: 120px;
-            display: inline-block;
-            text-align: center;
-            transition: all 0.2s;
-            color: white;
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
-        }
+a.button {
+    color: white;
+    text-decoration: none; /*gach chan bo di khi dua chuot vao*/
+    cursor:pointer; /*con chuot chuyen che do khong bam duoc*/
+}
+.gender {
+    text-align: left;
+}
+button {
+    text-decoration: none;
+    border: 5px solid none;
+    background-color: rgb(58, 15, 247);
+    padding: 15px 25px;
+    border-radius: 10px;
+    width: 120px;
+    text-align: center;
+    transition: all 0.2s;
+    color: white;  
+    margin-left: 500px;
+}
+
+[disabled] {
+    background-color: #999;
+    cursor:default; /*con chuot chuyen che do khong bam duoc*/
+}
+
+/*button:hover, 
+button:active {
+    background-color: rgb(52, 104, 235);
+    color: rgb(250, 251, 253);
+}*/
     </style>
 </head>
 
 <body>
-    <div id="cars">
-        <div class="container">
-            <h1 style="text-align:center;">Input-Output</h1>
+    <center>
+        <h1 style="padding: 10px">LESSON 7 - FORM Đăng Ký</h1>
+    </center>
+    <div class="container">
+
+        <div class="input-box1">
             <div class="row">
-                <div class="col-5">
-                    <textarea id="before" cols="50" rows="10" type="text" placeholder="Nhap input"></textarea>
+                <div class="col-6">
+                    <label for="name">Name</label>
+                    <br>
+                    <input type="text" name="name" id="name" onkeyup="checkValue()" onclick="checkName()">
+                    <br>
+                    <span class="text-danger" id="spanName">*</span>
                 </div>
-
-                <div class="col-2">
-                    <button type="button" class="btn-secondary" onclick="
-                        transfer();">Transfer
-                    </button>
-                </div>
-
-                <div class="col-5">
-                    <textarea id="after" cols="50" rows="10" type="text"></textarea>
+                <div class="col-6">
+                    <label for="password">Password</label>
+                    <br>
+                    <input type="password" name="password" id="password" onkeyup="checkValue()"
+                        onclick="checkPassword()" required>
+                    <br>
+                    <span class="text-danger" id="spanPassword">*</span>
                 </div>
             </div>
         </div>
+        <div class="input-box2">
+            <div class="row">
+                <div class="col-6">
+                    <label for="phone">Phone</label>
+                    <br>
+                    <input type="number" name="phone" id="phone" onkeyup="checkValue()" onclick="checkPhone()">
+                    <br>
+                    <span class="text-danger" id="spanPhone">*</span>
+                </div>
+                <div class="col-6">
+                    <label for="email">Email</label>
+                    <br>
+                    <input type="text" name="email" id="email" onkeyup="checkValue()" onclick="checkEmail()">
+                    <br>
+                    <span class="text-danger" id="spanEmail">*</span>
+                </div>
+            </div>
+        </div>
+        <div class="input-box3">
+            <div class="row">
+                <div class="col-6">
+                    <label for="birth">Birth</label>
+                    <br>
+                    <input type="date" name="birth" id="birth" onkeyup="checkValue()" onclick="checkBirth()">
+                    <br>
+                    <span class="text-danger" id="spanBirth">*</span>
+                </div>
+                <div class="col-6">
+                    <label for="address">Address</label>
+                    <br>
+                    <input type="text" name="address" id="address" onkeyup="checkValue()" onclick="checkAddress()"
+                        required>
+                    <br>
+                    <span class="text-danger" id="spanAddress">*</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 pl-5">
+            <label for="">Gender:</label>
+            <input type="radio" name="gender" id="male" value="male" onkeyup="checkValue()">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female" onkeyup="checkValue()">
+            <label for="female">Female</label>
+            <br>
+            <span class="text-danger" id="spanGender">*</span>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <h2 class="feedback p-5" style="font-size: 20px;">Give us feedback:</h2>
+            </div>
+            <div class="col-7">
+                <textarea name="info" id="info" cols="70" rows="10" placeholder="Please Feedback"></textarea>
+            </div>
+            <div class="col-3">
+                <div class="input-box pl-4">
+                    <input type="checkbox" id="checkMeOut" onkeyup="checkValue()" onclick="checkTick()">
+                    <label for="checkMeOut">Agree to terms</label>
+                    <br>
+                    <span class="text-danger" id="spanTick">*</span>
+                </div>
+                <div class="input-box pl-4">
+                    <input type="checkbox" id="checkBox">
+                    <label for="checkBox">Receive news email</label>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <button disabled id="button" onclick="myFunction()">
+            Register
+            </buton>
     </div>
+    <div class="container">
+        <table class="table" id="render">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Birth</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="body"></tbody>
+        </table>
     </div>
     <script>
-        var textbef = document.getElementById("before");
-        var textaft = document.getElementById("after");
+        function checkValue() {
+            let name = document.getElementById('name').value;
+            let password = document.getElementById('password').value;
+            let phone = document.getElementById('phone').value;
+            let email = document.getElementById('email').value;
+            let birth = document.getElementById('birth').value;
+            let address = document.getElementById('email').value;
+            let male = document.getElementById('male').value;
+            let female = document.getElementById('female').value;
+            let checkMeOut = document.getElementById('checkMeOut').value;
+            if (name != "" && password != "" && email != "" && phone != "" && birth != "" && address != "" && male != "" && female != "" &&
+                checkMeOut != "") {
+                //show btn
+                document.getElementById('button').disabled = false; //hien
+            } else {
+                //hide btn
+                document.getElementById('button').disabled = true; //an
 
-        // const str = 'let a  =12;';
-
-        // const result = str.replace("=", " = ");
-        // console.log(result); // 👉️ "a p p l e"
-        var textbef = document.getElementById("before");
-        var textaft = document.getElementById("after");
-
-        function transfer() {
-            //let $a=12; -> let $a = 12;
-            textaft.value = textbef.value.replace("=", " = ");
-            document.getElementById("after").innerHTML = textaft;
-            //let $a=12;       (khoảng trống ở sau/ ở trước     let $a=12;)
-            textaft.value = textbef.value.trim().replace("=", " = ");
-            document.getElementById("after").innerHTML = textaft;
-            //console.log(textaft.value);
-            //let $a=12    ;
-            textaft.value = textbef.value.replace(/  /gi, "").replace(' ;', ';').replace('=', ' = ');
-            document.getElementById("after").innerHTML = textaft;
-            //let    $a=12;
-            textaft.value = textbef.value.replace(/  /gi, "").replace('t$', 't $').replace('=', ' = ');
-            document.getElementById("after").innerHTML = textaft;
+            }
+        }
+        function checkName() {
+            var name = document.getElementById("name").value;
+            var test = (mauKT = /([A-Z]{1}[a-z]+)((\s{1}[A-Z]{1}[a-z]+){1,})$/);
+            if (name == "") {
+                document.getElementById("spanName").innerHTML = "Please enter your full name";
+                return false;
+            }
+            if (!test.test(name)) {
+                document.getElementById("spanName").innerHTML = "Please enter your full name";
+                return false;
+            }
+            document.getElementById("spanName").innerHTML = "";
+            return true;
         }
 
+        /*  function checkPassword() {
+              var password = document.getElementById("password").value;
+              var test = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+              if (password == "") {
+                  document.getElementById("spanPassword").innerHTML = "Please enter the correct characters";
+                  return false;
+              }
+              if (!test.test(password)) {
+                  document.getElementById("spanPassword").innerHTML = "Please enter the correct characters";
+                  return false;
+              }
+              document.getElementById("spanPassword").innerHTML = "";
+              return true;
+          }*/
+        function checkPhone() {
+            var phone = document.getElementById("phone").value;
+            var test = /^0\d{9}$/;
+            if (phone == "") {
+                document.getElementById("spanPhone").innerHTML = "Please enter 10 numbers correctly";
+                return false;
+            }
+            if (!test.test(phone)) {
+                document.getElementById("spanPhone").innerHTML = "Please enter 10 numbers correctly";
+                return false;
+            }
+            document.getElementById("spanPhone").innerHTML = "";
+            return true;
+        }
+
+        function checkEmail() {
+            var email = document.getElementById("email").value;
+            var test = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            if (email == "") {
+                document.getElementById("spanEmail").innerHTML = "Please enter the correct email";
+                return false;
+            }
+            if (!test.test(email)) {
+                document.getElementById("spanEmail").innerHTML = "Please enter the correct email";
+                return false;
+            }
+            document.getElementById("spanEmail").innerHTML = "";
+            return true;
+        }
+
+         function checkBirth() {
+             var birth = document.getElementById("birth").value;
+             var test = /^(0?[1-9]|[1-2][0-9]|3(01))\-(0?[1-9]|1[0-2])-\d{4}$/
+             if (birth == "") {
+                 document.getElementById("spanBirth").innerHTML = "Please enter the correct birthday";
+                 return false;
+             }
+             if (!test.test(birth)) {
+                 document.getElementById("spanBirth").innerHTML = "Please enter the correct birthday";
+                 return false;
+             }
+             document.getElementById("spanBirth").innerHTML = "";
+             return true;
+         }
+
+        function checkAddress() {
+            var address = document.getElementById("address").value;
+            var test = /^[A-Z0-9][a-z0-9]*(\s[A-Z0-9][a-z0-9]*)*$/;
+            if (address == "") {
+                document.getElementById("spanAddress").innerHTML = "Please enter the correct address";
+                return false;
+            }
+            if (!test.test(address)) {
+                document.getElementById("spanAddress").innerHTML = "Please enter the correct address";
+                return false;
+            }
+            document.getElementById("spanAddress").innerHTML = "";
+            return true;
+        }
+
+        var data = [
+            {
+                Name: "Nguyen Van A",
+                Password: "Abc123",
+                Phone: "0123456789",
+                Email: "VanA@gamil.com",
+                Birth: "01/01/2000",
+                Address: "123 Le Gia Dinh, tp. HCM"
+            }
+        ]
+        function showInfodata(abc) {
+            var hang = "";
+            for (x in data) {
+                hang += `<tr>
+                  <td>${data[x]["Name"]}</td>
+                  <td>${data[x]["Password"]}</td>
+                  <td>${data[x]["Phone"]}</td>
+                  <td>${data[x]["Email"]}</td>
+                  <td>${data[x]["Birth"]}</td>
+                  <td>${data[x]["Address"]}</td>
+              </tr>`;
+            }
+            document.getElementById("body").innerHTML = hang;
+        }
+        showInfodata(data);
+        //show list data
+
+        function myFunction() {
+            var item_name = document.getElementById('name').value //gán đưa đến phần tử cần xử lý thêm value
+            var item_password = document.getElementById('password').value
+            var item_phone = document.getElementById('phone').value
+            var item_email = document.getElementById('email').value
+            var item_birth = document.getElementById('birth').value
+            var item_address = document.getElementById('address').value
+
+            var item = {
+                Name: item_nam,
+                Password: item_password,
+                Phone: item_phone,
+                Email: item_email,
+                Birth: item_birth,
+                Address: item_address
+            }
+            data.push(item) //đưa dữ liệu lên data
+            render()
+            clead()
+        }
+
+        function render() { //kết xuất
+            table = `  <tr>
+            <th>Name</th>
+            <th>Password</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Birth</th>
+            <th>Addrres</th>
+        </tr>`
+            for (let i = 0; i < data.length; i++) {
+                table += `  <tr>
+            <td>${data[i].Name}</td>
+            <td>${data[i].Password}</td>
+            <td>${data[i].Phone}</td>
+            <td>${data[i].Email}</td>
+            <td>${data[i].Birth}</td>
+            <td>${data[i].Address}</td>   
+        </tr>`
+            }
+            document.getElementById('render').innerHTML = table
+        }
+        function clead() {
+            document.getElementById('name').value = "";
+            document.getElementById('password').value = "";
+            document.getElementById('phone').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('birth').value = "";
+            document.getElementById('address').value = "";
+        } //khóa lại sau mỗi lần nhập lấy giá trị rỗng 
     </script>
+
 </body>
-
-
 </html>
