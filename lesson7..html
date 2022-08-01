@@ -5,45 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript-Lesson5</title>
-    <link rel="stylesheet" href="lesson5.css">
+    <title>Lesson7-JavaScript-ShowList-OrderList</title>
+    <link rel="stylesheet" href="./css_all/lss7.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgb(93, 111, 107);
-    width: 100px;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 20px;
-    text-decoration: none;
-    display: block;
-    color: white;
-    text-align: center;
-    padding:20px;
-  }
-  
-  .dropdown-content a:hover {background-color: #e1e9b6}
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .clearfix::after{
-    content: "";
-    display: table;
-    clear: both;
-  }
-    </style>
 </head>
 
 <body>
@@ -89,97 +53,7 @@
                 <a href="#" onclick="orderAge()">Age</a>
             </div>
         </div>
-        <script>
-            var data = [
-                {
-                    Id: 112,
-                    Name: 'Nguyen Van B',
-                    Age: 18,
-                },
-                {
-                    Id: 234,
-                    Name: 'Nguyen Van D',
-                    Age: 14,
-                },
-                {
-                    Id: 245,
-                    Name: 'Nguyen Van A',
-                    Age: 53,
-                },
-                {
-                    Id: 345,
-                    Name: 'Nguyen Van C',
-                    Age: 34,
-                }
-            ]
-            function showInfodata(abc) {
-                var hang = "";
-                for (x in data) {
-                    hang += `<tr>
-                  <td>${data[x]["Id"]}</td>
-                  <td>${data[x]["Name"]}</td>
-                  <td>${data[x]["Age"]}</td>
-              </tr>`;
-                }
-                document.getElementById("body").innerHTML = hang;
-            }
-            showInfodata(data);
-            //show list data
-
-            function add() {
-                var item_id = document.getElementById('id').value //gán đưa đến phần tử cần xử lý thêm value
-                var item_name = document.getElementById('name').value
-                var item_age = document.getElementById('age').value
-
-                var item = {
-                    Id: item_id,
-                    Name: item_name,
-                    Age: item_age
-                }
-                data.push(item) //đưa dữ liệu lên data
-                render()
-                clead()
-            }
-
-            function render() { //kết xuất
-                table = `  <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Age</th>
-        </tr>`
-                for (let i = 0; i < data.length; i++) {
-                    table += `  <tr>
-            <td>${data[i].Id}</td>
-            <td>${data[i].Name}</td>
-            <td>${data[i].Age}</td>
-        </tr>`
-                }
-                document.getElementById('render').innerHTML = table
-            }
-            function clead() {
-                document.getElementById('id').value = "";
-                document.getElementById('name').value = "";
-                document.getElementById('age').value = "";
-            } //khóa lại sau mỗi lần nhập lấy giá trị rỗng 
-      //order
-            function orderName() {
-                data.sort(function (a, b) {
-                    let x = a.Name.toLowerCase();
-                    let y = b.Name.toLowerCase();
-                    if (x < y) { return -1; }
-                    if (x > y) { return 1; }
-                    return 0;
-                });
-                add();
-            }
-            function orderAge() {
-                data.sort(function (a, b) {
-                    return a.Age - b.Age;
-                });
-                add();
-            }
-
-        </script>
+        <script src="./js/js7.js"></script>
 </body>
 
 </html>
