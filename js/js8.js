@@ -116,7 +116,7 @@ function showInfoData(abc) {
     }
     document.getElementById("body").innerHTML = hang;
 }
-//show list data
+// show list data
 showInfoData(data);
 
 function myFunction() {

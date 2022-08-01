@@ -59,7 +59,7 @@ button {
 
 [disabled] {
     background-color: #999;
-    cursor:default; /*con chuot chuyen che do khong bam duoc*/
+    cursor:default;  /*con chuot chuyen che do khong bam duoc*/
 }
 span {
     display: none;

@@ -57,7 +57,7 @@ function clearInputData() {
     document.getElementById('id').value = "";
     document.getElementById('name').value = "";
     document.getElementById('age').value = "";
-} //khóa lại sau mỗi lần nhập lấy giá trị rỗng 
+}   //khóa lại sau mỗi lần nhập lấy giá trị rỗng 
 
 function orderName() {
     data.sort(function (a, b) {
