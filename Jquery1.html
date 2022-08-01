@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đăng Ký - JS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css_all/jquery1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h3 style="text-align: center;"> Giải Phương Trình Bậc 2 </h3>
+    <div class="container">
+        <h4 style="text-align:center;">Input-Output</h4>
+        <div class="row">
+            <div class="col-4">
+                <textarea id="inputa" cols="40" rows="5" type="number" placeholder="Nhap input a"></textarea>
+            </div>
+            <div class="col-4">
+                <textarea id="inputb" cols="40" rows="5" type="number" placeholder="Nhap input b"></textarea>
+            </div>
+            <div class="col-4">
+                <textarea id="inputc" cols="40" rows="5" type="number" placeholder="Nhap input c"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <button type="button" class="btn-secondary" onclick="
+               numbRandom();">Random
+            </button>
+            </div>
+            <div class="col-2">
+                <button type="button"  class="btn-secondary" onclick="
+                reSult();">Result
+            </button>
+            </div>
+            <div class="col-8">
+                <div class="Result">
+                    <textarea id="result" cols="90" rows="5" type="text" placeholder="Ket qua Nghiem la:"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="./js/jquery1.js"></script>
+</body>
+
+</html>
