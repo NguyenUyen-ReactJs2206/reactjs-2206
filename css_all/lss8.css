@@ -1,0 +1,71 @@
+* {
+    padding: 0px;
+    margin: 0px auto;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    max-width: 1140px;
+    padding-bottom: 30px;
+    background-color: rgb(247, 238, 202);
+}
+.col-6 {
+    float: left;
+    width: 50%;
+}
+
+input[type='text'],
+input[type='text'],
+input[type='password'],
+input[type='number'],
+input[type='date'] {
+    padding: 7.5px 15px;
+    margin-bottom: 20px;
+    width: 95%;
+    border: 1px solid #cccccc;
+    font-size: 16px;
+    display: inline-block;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+a.button {
+    color: white;
+    text-decoration: none; /*gach chan bo di khi dua chuot vao*/
+    cursor:pointer;
+}
+.gender {
+    text-align: left;
+}
+button {
+    text-decoration: none;
+    border: 5px solid none;
+    background-color: rgb(58, 15, 247);
+    padding: 15px 25px;
+    border-radius: 10px;
+    width: 120px;
+    text-align: center;
+    transition: all 0.2s;
+    color: white;  
+    margin-left: 500px;
+}
+
+[disabled] {
+    background-color: #999;
+    cursor:default; /*con chuot chuyen che do khong bam duoc*/
+}
+span {
+    display: none;
+}
+/*button:hover, 
+button:active {
+    background-color: rgb(52, 104, 235);
+    color: rgb(250, 251, 253);
+}*/
