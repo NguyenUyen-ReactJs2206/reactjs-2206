@@ -31,7 +31,7 @@ $(function () {
 }
 );
 
-//showNumberStudent after one Click Button
+//showNumberStudent after 1 Click Button
 $(function () {
     var totalStudent = listStudent.length;
     var numberStudentShow = 2;
