@@ -49,6 +49,7 @@ function add() {
     }
 
     data.push(item) //đưa dữ liệu lên data
+    console.log(item);
     showInfoData(data)
     clearInputData()
 }
