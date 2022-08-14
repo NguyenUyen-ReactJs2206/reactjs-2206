@@ -17,7 +17,8 @@ $('body').on('click', '#button', function () {
 
     let result = '';
     if (numberMoney < 50000) {
-        result += `So tien can rut toi thieu phai la 50k. Vui long nhap dung`;
+        result += `Số tiền cần rút tối thiểu là 50.000 
+        Vui lòng nhập đúng.`;
 
         $('#reSult').empty().append(result);
 
