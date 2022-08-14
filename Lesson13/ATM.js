@@ -24,12 +24,14 @@ $('body').on('click', '#button', function () {
     }
     else if (numberMoney > 100000000) {
         result += `Khong du tien de rut`;
+
         $('#reSult').empty().append(result);
     }
     else if (numberMoney == 5000000) {
         result += `Số tiền rút được là: 
         2 tờ 500k
         ${Math.floor((numberMoney - 2 * 500000) / 200000)} tờ 200k`;
+        
         $('#reSult').empty().append(result);
     }
     else if (numberMoney % 500000 == 0) {
