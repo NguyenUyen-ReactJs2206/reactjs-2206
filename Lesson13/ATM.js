@@ -17,7 +17,8 @@ $('body').on('click', '#button', function () {
 
     let result = '';
     if (numberMoney < 50000) {
-        result += `So tien can rut toi thieu phai la 50k. Vui long nhap dung`;
+        result += `Số tiền cần rút tối thiểu là 50.000 
+        Vui lòng nhập đúng.`;
 
         $('#reSult').empty().append(result);
 
@@ -57,8 +58,8 @@ $('body').on('click', '#button', function () {
 
                 $('#reSult').empty().append(result);
             } else {
-                surplusOfOneHundred = surplusOfTwoHundred % 200000;
-                if (surplusOfOneHundred % 50000 != 0) {
+                surplusOfOneHundred = surplusOfTwoHundred % 100000;
+                if (surplusOfOneHundred % 50000 !== 0 || surplusOfOneHundred % 50000 == 0 ) {
                     result += `Số tiền rút được là: 
                 ${Math.floor(numberMoney / 500000)} tờ 500k
                 ${Math.floor(surplusOfFiveHundred / 200000)} tờ 200k
