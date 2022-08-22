@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -75,9 +76,36 @@
                         <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
                     </li>
                 </ul>
+                <div class="cart">
+                    <span class="cart-number">0</span>
+                    <i class="fa-solid fa-cart-shopping cart"></i>
+                </div>
+                <div id="showcart">
+                    <div class="close"><i class="fa-solid fa-xmark"></i></div>
+                    <br>
+                    <table>
+                        <tr>
+                            <th>Hình</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền ($)</th>
+                        </tr>
+                        <tr>
+                            <td><img src="https://www.w3schools.com/bootstrap4/img_avatar1.png"></td>
+                            <td>Macbook 2020</td>
+                            <td>1</td>
+                            <td>1000</td>
+                            <td><div>1000</div></td>
+                        </tr>
+                        <th colspan="4">Tổng đơn hàng</th>
+                        <th><div>1000</div></th>
+                    </table>
+                </div>            
+
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" id="search">
-                    <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
+                    <button class="btn btn-success my-2 my-sm-0" type="button" id="btn-search">Search</button>
                 </form>
             </div>
         </nav>
@@ -89,8 +117,8 @@
                 <li class="offset-md-9">
                     <select class="form-control form-control-sm" id="sortProduct">
                         <option>Order By</option>
-                        <option value="decrease" >Decrease</option>
-                        <option value="increase" >Increase</option>
+                        <option value="decrease">Decrease</option>
+                        <option value="increase">Increase</option>
                     </select>
                 </li>
             </ol>
@@ -108,7 +136,8 @@
                             <i class="sale-off">$1200</i> -> <i>$500</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -123,7 +152,8 @@
                             <i>$545</i>
                         </p>
                         <p>Long</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -138,7 +168,8 @@
                             <i>$2100</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -153,7 +184,8 @@
                             <i>$1400</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -168,7 +200,8 @@
                             <i class="sale-off">$900</i> -> <i>$500</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -183,7 +216,8 @@
                             <i>$1100</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -198,7 +232,8 @@
                             <i>$1150</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -212,7 +247,8 @@
                             <i>$1300</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -226,7 +262,8 @@
                             <i>$900</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -241,7 +278,8 @@
                             <i>$700</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -256,7 +294,8 @@
                             <i>$950</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -271,7 +310,8 @@
                             <i>$400</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -286,7 +326,8 @@
                             <i>$850</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -300,7 +341,8 @@
                             <i>$1200</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -315,7 +357,8 @@
                             <i>$1000</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -330,7 +373,8 @@
                             <i>$980</i>
                         </p>
                         <p>Description</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                        <input name="quantity" class="form-control" placeholder="amount">
                     </div>
                 </div>
             </div>
@@ -338,9 +382,9 @@
         <hr>
         <nav aria-label="...">
             <ul class="pagination pagination-sm" id="paginate">
-              
+
             </ul>
-          </nav>
+        </nav>
         <hr>
         <div class="row">
             <div class="col-sm-3">
@@ -367,8 +411,11 @@
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
+
+        <div id="snackbar">Some text some message...</div>
     </div>
-<script src="./lesson10.js"></script>
+
+    <script src="./lesson10.js"></script>
 </body>
 
 </html>

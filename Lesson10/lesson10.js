@@ -58,7 +58,7 @@ $(function () {
 
         let paginateHTML = '';
         let pageCount = Math.ceil(totalProduct / numberPerPage);
-        
+
 
         for (let i = 1; i <= pageCount; i++) {
 
@@ -72,7 +72,7 @@ $(function () {
         };
 
         $('#paginate').empty().append(paginateHTML);
-        
+
     };
 
 
@@ -126,31 +126,115 @@ $(function () {
         showPaginate(1);
     };
 
-showCartNumber();
-function showCartNumber() {
-    let currentCartNumber = localStorage.getItem('cart-number');
-    $('.cart-number').text(currentCartNumbber);
+
+    $.get("https://jsonplaceholder.typicode.com/users", function (data, status) {
+        if (status == 'success') {
+            showData(data)
+        }
+    });
+
+    function showData(data) {
+        //TODO
+        let productHTML = ``;
+
+        data.forEach(function (user) {
+
+            productHTML += `
+            <div class="col-sm-3 mb-3 product">
+            <div class="card" style="">
+                <img class="card-img-top" src="https://www.w3schools.com/bootstrap4/img_avatar1.png"
+                    alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">${user.name.substr(0, 10)}</h4>
+                    <p class="card-text">
+                        <i>$1200</i>
+                    </p>
+                    <p>Description</p>
+                    <button class="btn btn-outline-primary buy" type="button">Buy</button>
+                    <input name="quantity" class="form-control" placeholder="amount">     
+                </div>
+            </div>
+        </div>
+        `;
+        });
+
+        $('#products').append(productHTML);
+    }
+
+    //
+    showCartNumber();
+    function showCartNumber() {
+        let currentCartNumbber = localStorage.getItem('cart-number');
+        $('.cart-number').text(currentCartNumbber);
+    }
+
+    $('body').on('click', '.buy', function (event) { //bắt sự kiện, tìm tất cả element có id = buy
+        event.preventDefault(); //bỏ đi các event của thẻ đấy, như link...
+
+        let quantity = +$(this).parent().find('input[name="quantity"]').val(); //tìm trong elêmnt có class là buy, tìm cha của nó và truy cập vào input có tên là quantity lấy giá trị
+        if (quantity == 0 || isNaN(quantity)) {
+            alert('Nhập số lượng sản phẩm vào');
+           // console.log(quantity);
+            return;
+        }
+        console.log(quantity);
+
+        let productName = $(this).parent().find('.card-title').text(); //lấy tên sản phẩm
+        //console.log(productName);
+
+        let currentCartNumber = +$('.cart-number').text(); // đây là Get lấy giá trị từ element có class là cart-number
+        let newCartNumber = currentCartNumber + quantity; // + quantity là nhập số lượng bn thì cộng dồn vào bấy nhiêu
+
+        $('.cart-number').text(newCartNumber); //đây là set, truyền giá trị vào , mỗi lần click là cộng thêm 1
+
+        //Sử dụng localStotage để khi reload không bị mất các sản phẩm
+        localStorage.setItem('cart-number', newCartNumber);
+
+        showMsgSuccess(productName, quantity);
+        $(this).parent().find('input[name="quantity"]').val('');
+
+
+        //Bảng gồm:
+        //1.img , 2.productName: tên sp (đc), 3.quantity : số lượng (đã có), 4.price
+
+
+
+
+    });
+
+    function showMsgSuccess(productName, quantity) {
+        let msg = `Đã thêm ${quantity} ${productName} vào giỏ hàng`;
+       // console.log(msg)
+        var x = document.getElementById("snackbar");
+        x.textContent = msg;
+        x.className = "show";
+        setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+    };
+
+    //show 
+    $('#showcart').hide();
+    $('body').on('click', '.cart', function () {
+    if ($('#showcart').hide()) {
+        $('#showcart').show();
+    } 
+    /*else {
+        $('#showcart').hide();
+    }*/
+    });
+
+    $('body').on('click', '.close', function () {
+        $('#showcart').hide();
+    });
+
+
+    var giohang = new Array();
+function themvaogiohang(x) {
+    var img = $('.cart').find()
 }
 
-$('body').on('click', '.buy', function (e) {
-    e.preventDefault();
-
-    let currentCartNumber = +$('.cart-number').text();
-    let newCartNumber = currentCartNumber + 1;
-
-    $('.cart-number').text(newCartNumber);
-
-    localStorage.setItem('cart-number', newCartNumber);
-
-    showNsgSuccess();
-});
-
-function showNsgSuccess() {
-    var x = $('#snackbar');
-    x.className = 'show';
-    setTimeout(function () {
-        x.className = x.className.replace('show','');
-    },3000);
+function showMyCart(){
+    
 }
+    
 });
 

@@ -14,9 +14,14 @@
 
 $('body').on('click', '#button', function () {
     let numberMoney = +$('#money').val();
-
+    let check = /[0-9]$/;
     let result = '';
-    if (numberMoney < 50000) {
+
+    if (!check.test(numberMoney)) {
+        result += `Vui lòng nhập đúng tối thiểu là 5 chữ số!`;
+        $('#reSult').empty().append(result);
+    }
+    else if (numberMoney < 50000) {
         result += `Số tiền cần rút tối thiểu là 50.000 
         Vui lòng nhập đúng.`;
 
